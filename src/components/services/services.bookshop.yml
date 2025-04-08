@@ -4,14 +4,41 @@ spec:
     - content_blocks
   label: Services
   description: 
-  icon: ''
-  tags: []
+  icon: 'swipe'
+  tags:
+    - Carousel
+    - Text
+    - Images
 
 # Defines the structure of this component, as well as the default values
 blueprint:
+  services:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  services:
+    type: array
+    options:
+      structures: _structures.service
+
+_structures:
+  service:
+    values:
+      - value:
+          title:
+          content:
+          images:
+          button:
+            enable:
+            label:
+            link:
+        _inputs:
+          title:
+            type: textarea
+          images:
+            type: array
+          images[*]:
+            type: image

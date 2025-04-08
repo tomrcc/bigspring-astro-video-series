@@ -4,11 +4,16 @@ spec:
     - content_blocks
   label: Workflow
   description: 
-  icon: ''
-  tags: []
+  icon: business_center
+  tags:
+    - Image
+    - Title
 
 # Defines the structure of this component, as well as the default values
 blueprint:
+  title: 
+  image: "/images/banner.png"
+  description: ""
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

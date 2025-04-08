@@ -95,13 +95,29 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+
 _inputs:
+  content:
+    type: markdown
+    options:
+      bold: true
+      italic: true
+      underline: true
+      link: true
+  title:
+    type: textarea
+  button:
+    type: object
+    options:
+      preview:
+        icon: smart_button
   answer:
     type: markdown
     cascade: true
   contacts[*]:
     type: markdown
     cascade: true
+
 timezone: Pacific/Auckland
 markdown:
   engine: commonmark

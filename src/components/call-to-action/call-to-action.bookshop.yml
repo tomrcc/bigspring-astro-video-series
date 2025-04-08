@@ -3,12 +3,20 @@ spec:
   structures:
     - content_blocks
   label: CTA
-  description: 
-  icon: ''
-  tags: []
+  description: Call to action
+  icon: 'smart_button'
+  tags:
+    - Button
 
 # Defines the structure of this component, as well as the default values
 blueprint:
+  title: 
+  content: 
+  image: '/images/cta.png'
+  button:
+    enable: true
+    label: "Contact Us"
+    link: "/contact"
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

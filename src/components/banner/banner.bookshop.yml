@@ -24,18 +24,4 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
-  title:
-    type: textarea
-  content:
-    type: markdown
-    options:
-      bold: true
-      italics: true
-      underline: true
-      link: true
-  button:
-    type: object
-    options:
-      preview:
-        icon: smart_button
   

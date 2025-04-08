@@ -4,14 +4,36 @@ spec:
     - content_blocks
   label: Features
   description: 
-  icon: ''
-  tags: []
+  icon: new_releases
+  tags:
+    - Text
+    - Icons
+    - Card grid
 
 # Defines the structure of this component, as well as the default values
 blueprint:
+  title:
+  features: []
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  features:
+    type: array
+    options:
+      structures: _structures.feature
+
+_structures:
+  feature:
+    values:
+      - value:
+          name: 
+          icon: 
+          content: 
+        _inputs:
+          icon:
+            type: file
+        preview:
+          icon: new_releases
