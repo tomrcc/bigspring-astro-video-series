@@ -2,6 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 // Homepage schema
 const homepageSchema = z.object({
+  content_blocks: z.array(z.any()),
   banner: z.object({
     title: z.string().optional(),
     content: z.string().optional(),

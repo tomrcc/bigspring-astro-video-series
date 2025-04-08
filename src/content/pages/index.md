@@ -1,4 +1,8 @@
 ---
+content_blocks:
+  - _bookshop_name: sample
+    text: This is just a sample from frontmatter
+
 banner:
   title: Let us solve your critical website development challenges
   content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime corporis cumque <br/> totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus
