@@ -1,6 +1,12 @@
 ---
 import { Image } from "astro:assets";
 const { title, description, image } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
+const imageSrc = images[image]?.default ?? image;
 ---
 
 <section class="section pb-0">
@@ -11,5 +17,5 @@ const { title, description, image } = Astro.props;
     />
     <p class="mt-3" set:html={description} />
   </div>
-  <Image src={image} alt="workflow image" width={1920} height={414} />
+  <Image src={imageSrc} alt="workflow image" width={1920} height={414} />
 </section>

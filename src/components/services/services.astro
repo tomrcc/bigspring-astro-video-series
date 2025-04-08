@@ -1,11 +1,18 @@
 ---
 import { Image } from "astro:assets";
 const { services } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
 ---
 
 {
   services!.map((service: any, index: number) => {
     const isOdd = index % 2 > 0;
+    const firstImage = service!.images![0];
+    const firstImageSrc = images[firstImage]?.default ?? firstImage;
     return (
       <section class={`section ${isOdd && "bg-theme-light"}`}>
         <div class="container">
@@ -14,24 +21,27 @@ const { services } = Astro.props;
               {service!.images!.length > 1 ? (
                 <div class="swiper">
                   <div class="swiper-wrapper">
-                    {service!.images?.map((image: string) => (
-                      <div class="swiper-slide">
-                        <Image
-                          class="mx-auto"
-                          src={image}
-                          width={538}
-                          height={328}
-                          alt=""
-                        />
-                      </div>
-                    ))}
+                    {service!.images?.map((image: string) => {
+                      const imageSrc = images[image]?.default ?? image;
+                      return (
+                        <div class="swiper-slide">
+                          <Image
+                            class="mx-auto"
+                            src={imageSrc}
+                            width={538}
+                            height={328}
+                            alt=""
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                   <div class="pagination" />
                 </div>
               ) : (
                 <Image
                   class="mx-auto"
-                  src={service!.images![0]}
+                  src={firstImageSrc}
                   width={538}
                   height={328}
                   alt=""

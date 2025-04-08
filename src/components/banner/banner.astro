@@ -2,6 +2,13 @@
 import { Image } from "astro:assets";
 import { markdownify } from "@/lib/utils/textConverter";
 const { title, content, button, image } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
+
+const imageSrc = images[image]?.default ?? image;
 ---
 
 <!-- banner -->
@@ -24,7 +31,7 @@ const { title, content, button, image } = Astro.props;
           image && (
             <Image
               class="mx-auto mt-12"
-              src={image}
+              src={imageSrc}
               width={750}
               height={390}
               alt="banner image"
