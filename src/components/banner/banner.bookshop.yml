@@ -4,15 +4,38 @@ spec:
     - content_blocks
   label: Banner
   description: 
-  icon: ''
-  tags: []
+  icon: 'ad_units'
+  tags:
+    - Text
+    - Image
+    - Button
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  text:
+  title: 
+  content: 
+  image: /images/banner-art.png
+  button:
+    label: "Contact Us"
+    link: "/contact"
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  title:
+    type: textarea
+  content:
+    type: markdown
+    options:
+      bold: true
+      italics: true
+      underline: true
+      link: true
+  button:
+    type: object
+    options:
+      preview:
+        icon: smart_button
+  
